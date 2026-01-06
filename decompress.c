@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     }
 
     uint8_t magic[4];
-    fread(magic, sizeof(magic), 1, infile);
+    fread(magic, sizeof(*magic), 4, infile);
 
     if (memcmp(magic, "HUFF", 4) != 0)
     {
