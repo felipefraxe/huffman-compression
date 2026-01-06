@@ -36,8 +36,9 @@ int main(int argc, char *argv[])
     struct huff_tree tree = {0};
     huff_tree_deserialize(&tree, &br);
 
-    char out_path[strlen(in_path) + 1];
-    sprintf(out_path, "%s.dec", in_path);
+    char out_path[strlen(in_path) + 2];
+    memcpy(out_path, in_path, strlen(in_path) - 2);
+    strncat(out_path, "dec", 4);
     FILE *outfile = fopen(out_path, "wb");
     if (!outfile)
     {
