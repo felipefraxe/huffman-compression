@@ -9,29 +9,34 @@ Supports:
 
 ## Compile
 
-### Using `clang`:
-
+Simply run
 ```bash
-clang -Wall -Wextra -O2 bit_reader.c bit_writer.c huff.c compress.c -o compress
-clang -Wall -Wextra -O2 bit_reader.c bit_writer.c huff.c decompress.c -o decompress
+make
 ```
+This will produce two executables in bin/:
+- bin/compress
+- bin/decompress
 
-### Using `gcc`:
+## Clean Build files
 ```bash
-gcc -Wall -Wextra -O2 bit_reader.c bit_writer.c huff.c compress.c -o compress
-gcc -Wall -Wextra -O2 bit_reader.c bit_writer.c huff.c decompress.c -o decompress
+make clean
 ```
+This will:
+- Delete all .o files in build/
+- Delete all executables in bin/
 
 ## Usage
 ### Compress
 ```bash
-./compress <filename>
+./bin/compress <filename>
 ```
+Generates a compressed file: <filename>.hf.
 
 ### Decompress
 ```bash
-decompress <filename.hf>
+./bin/decompress <filename.hf>
 ```
+Generates a decompressed file: <filename>.dec.
 
 ## License
 
